@@ -15,11 +15,13 @@
             <div>
                 @if (Auth::id() == $micropost->user_id)
                     {!! Form::open(['route' => ['microposts.destroy', $micropost->id], 'method' => 'delete']) !!}
-                        {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-xs']) !!}
+                        {!! Form::submit('Delete', ['class' => "btn btn-danger btn-xs"]) !!}
                     {!! Form::close() !!}
                 @endif
+                @include('favorites.favorite_button', ['micropost' => $micropost])
             </div>
         </div>
+          
     </li>
 @endforeach
 </ul>
